@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import memojiAvatar1 from "@/assets/images/memoji-avatar-1.png";
 import memojiAvatar2 from "@/assets/images/memoji-avatar-2.png";
@@ -5,6 +8,7 @@ import memojiAvatar3 from "@/assets/images/memoji-avatar-3.png";
 import memojiAvatar4 from "@/assets/images/memoji-avatar-4.png";
 import memojiAvatar5 from "@/assets/images/memoji-avatar-5.png";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Card } from "@/components/Card";
 
 const testimonials = [
   {
@@ -41,22 +45,47 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return (
-    <div>
-      <SectionHeader
-        title="Who is Ivan?"
-        description="I'm a software engineer with a passion for building products that help
-        people live better lives."
-        eyebrow="What people say about me"
-      />
-      <div>
-        {testimonials.map((testimonial) => (
-          <div key={testimonial.name}>
-            <Image src={testimonial.avatar} alt={testimonial.name} />
-            <p>{testimonial.text}</p>
-            <p>{testimonial.name}</p>
-          </div>
-        ))}
+    <section className="py-16 lg:py-24">
+      <div className="container">
+        <SectionHeader
+          title="What People Say"
+          description="Here are some testimonials from people I've worked with."
+          eyebrow="Testimonials"
+        />
+        <div className="mt-10 md:mt-20 flex flex-col gap-10">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="p-6">
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="relative size-12 rounded-full overflow-hidden bg-gray-700">
+                      <Image
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">{testimonial.name}</h3>
+                      <p className="text-white/60 text-sm">
+                        {testimonial.position}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-white/80">{testimonial.text}</p>
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
