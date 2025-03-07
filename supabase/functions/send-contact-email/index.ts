@@ -15,11 +15,7 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-const resend = new Resend("re_MyhLUFG7_Mfoy4VFHrAHCWiCgJt9YffvA");
-const supabaseUrl = "https://fklltqoqglafnsxhlkef.supabase.co";
-const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrbGx0cW9xZ2xhZm5zeGhsa2VmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDEzNDUxOTYsImV4cCI6MjA1NjkyMTE5Nn0.yOuXwzAOc4BNOTTHwxb0soTnpaAnbKo4cBG-57tBy5Y";
-const supabaseClient = createClient(supabaseUrl, supabaseKey);
+console.log("Hello from Functions!");
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -27,6 +23,17 @@ serve(async (req) => {
   }
 
   try {
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    const supabaseUrl = Deno.env.get("SUPABASE_URL");
+    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY");
+
+    if (!resendApiKey || !supabaseUrl || !supabaseAnonKey) {
+      throw new Error("Missing environment variables");
+    }
+
+    const resend = new Resend(resendApiKey);
+    const supabaseClient = createClient(supabaseUrl, supabaseAnonKey);
+
     const { name, email, message } = await req.json();
 
     // Store in database
@@ -37,9 +44,9 @@ serve(async (req) => {
     if (dbError) throw dbError;
 
     // Send email
-    const { data, error: emailError } = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
-      to: ["prostogoranov@gmail.com"],
+    const { error: emailError } = await resend.emails.send({
+      from: "Contact Form <contact@igoranov.com>",
+      to: ["contact@igoranov.com"],
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -50,14 +57,9 @@ serve(async (req) => {
       `,
     });
 
-    if (emailError) {
-      console.error({ emailError });
-      throw emailError;
-    }
+    if (emailError) throw emailError;
 
-    console.log({ data });
-
-    return new Response(JSON.stringify({ message: "Success", id: data?.id }), {
+    return new Response(JSON.stringify({ message: "Success" }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
     });
