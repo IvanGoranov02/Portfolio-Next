@@ -25,11 +25,12 @@ serve(async (req) => {
 
   try {
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
-    const projectUrl = Deno.env.get("PROJECT_URL");
-    const anonKey = Deno.env.get("PROJECT_ANON_KEY");
+    const projectUrl = "https://fklltqoqglafnsxhlkef.supabase.co";
+    const anonKey =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrbGx0cW9xZ2xhZm5zeGhsa2VmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDEzNDUxOTYsImV4cCI6MjA1NjkyMTE5Nn0.yOuXwzAOc4BNOTTHwxb0soTnpaAnbKo4cBG-57tBy5Y";
 
-    if (!resendApiKey || !projectUrl || !anonKey) {
-      throw new Error("Missing environment variables");
+    if (!resendApiKey) {
+      throw new Error("Missing Resend API key");
     }
 
     const resend = new Resend(resendApiKey);
@@ -46,8 +47,8 @@ serve(async (req) => {
 
     // Send email
     const { error: emailError } = await resend.emails.send({
-      from: "Goranov <igor@igoranov.com>",
-      to: ["prostogoranov@gmail.com"],
+      from: "Contact Form <contact@igoranov.com>",
+      to: ["contact@igoranov.com"],
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
