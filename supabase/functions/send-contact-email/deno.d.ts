@@ -14,6 +14,8 @@ declare module "@supabase/supabase-js" {
 }
 
 declare module "resend" {
+  import { ReactElement } from "react";
+
   export class Resend {
     constructor(apiKey: string);
     emails: {
@@ -22,8 +24,8 @@ declare module "resend" {
         to: string | string[];
         subject: string;
         html?: string;
-        react?: React.ReactElement<any, any>;
-      }): Promise<{ error?: any }>;
+        react?: ReactElement;
+      }): Promise<{ data?: { id: string }; error?: any }>;
     };
   }
 }

@@ -44,18 +44,12 @@ serve(async (req) => {
 
     if (dbError) throw dbError;
 
-    // Send email
+    // Send email using React template
     const { error: emailError } = await resend.emails.send({
-      from: "Goranov <igor@igoranov.com>",
-      to: ["prostogoranov@gmail.com"],
+      from: "Contact Form <contact@igoranov.com>",
+      to: ["contact@igoranov.com"],
       subject: `New Contact Form Submission from ${name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
+      react: <EmailTemplate name={name} email={email} message={message} />,
     });
 
     if (emailError) throw emailError;
