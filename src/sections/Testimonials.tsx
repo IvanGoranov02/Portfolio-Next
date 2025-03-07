@@ -61,7 +61,7 @@ export const TestimonialsSection = () => {
             {new Array(2).fill(0).map((_, index) => (
               <div
                 key={index}
-                className="flex flex-none gap-8 animate-move-left animation-duration-[90s]"
+                className="flex flex-none gap-8 animate-move-left md:animation-duration-[90s] animation-duration-[180s]"
               >
                 {testimonials.map((testimonial, index) => (
                   <motion.div

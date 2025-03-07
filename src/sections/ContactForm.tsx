@@ -12,11 +12,46 @@ export const ContactSection = () => {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setStatus({
+        type: "success",
+        message: "Message sent successfully! I'll get back to you soon.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message:
+          error instanceof Error ? error.message : "Failed to send message",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -51,7 +86,7 @@ export const ContactSection = () => {
                 className="flex flex-col gap-4"
               >
                 <h3 className="text-2xl font-serif md:text-4xl">
-                  Have a ideas in mind?
+                  Have a project in mind?
                 </h3>
                 <p className="text-white/60 text-lg md:text-xl">
                   Let's create something amazing together.
@@ -71,6 +106,7 @@ export const ContactSection = () => {
                     onChange={handleChange}
                     className="bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/20"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -86,6 +122,7 @@ export const ContactSection = () => {
                     onChange={handleChange}
                     className="bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/20"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -101,19 +138,37 @@ export const ContactSection = () => {
                     rows={4}
                     className="bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/20 resize-none"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
+                {status.message && (
+                  <div
+                    className={`rounded-lg px-4 py-3 text-sm ${
+                      status.type === "success"
+                        ? "bg-emerald-500/10 text-emerald-500"
+                        : "bg-red-500/10 text-red-500"
+                    }`}
+                  >
+                    {status.message}
+                  </div>
+                )}
+
                 <motion.button
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="inline-flex items-center gap-2 bg-white text-gray-950 px-8 py-4 rounded-xl font-semibold w-fit hover:bg-white/90 transition-colors"
+                  disabled={isSubmitting}
+                  className="bg-white text-gray-950 h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-4 md:w-auto md:px-6 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span>Send message</span>
-                  <ArrowUpIcon className="size-5" />
+                  {isSubmitting ? (
+                    <div className="size-5 border-2 border-gray-950 border-t-transparent rounded-full animate-spin" />
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <ArrowUpIcon className="size-5" />
+                    </>
+                  )}
                 </motion.button>
               </form>
 
