@@ -8,8 +8,6 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { serve } from "std/http/server.ts";
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
-import { renderToString } from "react-dom/server";
-import { ContactEmailTemplate } from "./email-template";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -25,11 +23,11 @@ serve(async (req) => {
   }
 
   try {
-    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    const resendApiKey = "re_MyhLUFG7_Mfoy4VFHrAHCWiCgJt9YffvA";
     const projectUrl = Deno.env.get("PROJECT_URL");
     const anonKey = Deno.env.get("PROJECT_ANON_KEY");
 
-    if (!resendApiKey || !projectUrl || !anonKey) {
+    if (!projectUrl || !anonKey) {
       throw new Error("Missing environment variables");
     }
 
@@ -45,21 +43,18 @@ serve(async (req) => {
 
     if (dbError) throw dbError;
 
-    // Render the email template
-    const emailHtml = renderToString(
-      ContactEmailTemplate({
-        name,
-        email,
-        message,
-      })
-    );
-
     // Send email
     const { error: emailError } = await resend.emails.send({
       from: "Contact Form <contact@igoranov.com>",
-      to: "contact@igoranov.com",
+      to: ["contact@igoranov.com"],
       subject: `New Contact Form Submission from ${name}`,
-      html: emailHtml,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `,
     });
 
     if (emailError) throw emailError;

@@ -19,9 +19,10 @@ declare module "resend" {
     emails: {
       send(options: {
         from: string;
-        to: string;
+        to: string | string[];
         subject: string;
-        html: string;
+        html?: string;
+        react?: React.ReactElement<any, any>;
       }): Promise<{ error?: any }>;
     };
   }
