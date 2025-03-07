@@ -5,9 +5,9 @@
 // Setup type definitions for built-in Supabase Runtime APIs
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import { Resend } from "https://esm.sh/resend@2.0.0";
+import { serve } from "std/http/server.ts";
+import { createClient } from "@supabase/supabase-js";
+import { Resend } from "resend";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -23,11 +23,16 @@ serve(async (req) => {
   }
 
   try {
-    const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
-    const supabaseClient = createClient(
-      Deno.env.get("PROJECT_URL") ?? "",
-      Deno.env.get("PROJECT_ANON_KEY") ?? ""
-    );
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    const projectUrl = Deno.env.get("PROJECT_URL");
+    const anonKey = Deno.env.get("PROJECT_ANON_KEY");
+
+    if (!resendApiKey || !projectUrl || !anonKey) {
+      throw new Error("Missing environment variables");
+    }
+
+    const resend = new Resend(resendApiKey);
+    const supabaseClient = createClient(projectUrl, anonKey);
 
     const { name, email, message } = await req.json();
 
@@ -58,7 +63,7 @@ serve(async (req) => {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
     });
-  } catch (error) {
+  } catch (error: any) {
     return new Response(JSON.stringify({ error: error.message }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 400,
