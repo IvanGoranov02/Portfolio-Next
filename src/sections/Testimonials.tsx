@@ -52,8 +52,12 @@ export const TestimonialsSection = () => {
           description="Here are some testimonials from people I've worked with."
           eyebrow="Testimonials"
         />
-        <div className="mt-10 md:mt-20 overflow-x-clip py-4 -my-4">
-          <div className="flex gap-8 hover:[&>*]:pause-animation hover:[&>*]:-rotate-3 hover:[&>*]:transition-transform">
+      </div>
+      <div className="mt-10 md:mt-20 relative">
+        <div className="absolute inset-y-0 left-0 w-[200px] bg-gradient-to-r from-gray-900 to-transparent z-10" />
+        <div className="absolute inset-y-0 right-0 w-[200px] bg-gradient-to-l from-gray-900 to-transparent z-10" />
+        <div className="overflow-x-clip py-4 -my-4">
+          <div className="flex gap-8 hover:[&>*]:pause-animation hover:[&>*]:-rotate-3 hover:[&>*]:transition-transform px-[200px]">
             {new Array(2).fill(0).map((_, index) => (
               <div
                 key={index}
