@@ -25,8 +25,8 @@ serve(async (req) => {
 
   try {
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
-    const projectUrl = "https://fklltqoqglafnsxhlkef.supabase.co";
-    const anonKey =
+    const supabaseUrl = "https://fklltqoqglafnsxhlkef.supabase.co";
+    const supabaseKey =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrbGx0cW9xZ2xhZm5zeGhsa2VmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDEzNDUxOTYsImV4cCI6MjA1NjkyMTE5Nn0.yOuXwzAOc4BNOTTHwxb0soTnpaAnbKo4cBG-57tBy5Y";
 
     if (!resendApiKey) {
@@ -34,7 +34,7 @@ serve(async (req) => {
     }
 
     const resend = new Resend(resendApiKey);
-    const supabaseClient = createClient(projectUrl, anonKey);
+    const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
     const { name, email, message } = await req.json();
 
