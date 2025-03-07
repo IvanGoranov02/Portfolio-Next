@@ -116,7 +116,7 @@ export const AboutSection = () => {
   const constraintRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div id="about" className="py-20 lg:py-28 lg:px-20">
+    <div className="py-20 lg:py-28 lg:px-20">
       <div className="container"></div>
       <SectionHeader
         title="A Glimpse Into My World"

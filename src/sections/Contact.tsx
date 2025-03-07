@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
+import ArrowUpIcon from "@/assets/icons/arrow-up-right.svg";
 import { useState } from "react";
-import { ScrollToTop } from "@/components/ScrollToTop";
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +27,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 lg:py-24">
+    <section className="py-16 lg:py-24">
       <div className="container">
         <SectionHeader
           title="Let's work together"
@@ -73,6 +73,7 @@ export const ContactSection = () => {
                     required
                   />
                 </div>
+
                 <div className="flex flex-col gap-2">
                   <label htmlFor="email" className="text-sm font-medium">
                     Email
@@ -87,6 +88,7 @@ export const ContactSection = () => {
                     required
                   />
                 </div>
+
                 <div className="flex flex-col gap-2">
                   <label htmlFor="message" className="text-sm font-medium">
                     Message
@@ -101,13 +103,17 @@ export const ContactSection = () => {
                     required
                   />
                 </div>
+
                 <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  viewport={{ once: true }}
                   type="submit"
-                  className="bg-white text-gray-950 h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-4 md:w-auto md:px-6"
+                  className="inline-flex items-center gap-2 bg-white text-gray-950 px-8 py-4 rounded-xl font-semibold w-fit hover:bg-white/90 transition-colors"
                 >
-                  Send Message
+                  <span>Send message</span>
+                  <ArrowUpIcon className="size-5" />
                 </motion.button>
               </form>
 
@@ -144,7 +150,6 @@ export const ContactSection = () => {
           </Card>
         </motion.div>
       </div>
-      <ScrollToTop />
     </section>
   );
 };
