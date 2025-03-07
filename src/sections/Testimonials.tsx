@@ -52,38 +52,50 @@ export const TestimonialsSection = () => {
           description="Here are some testimonials from people I've worked with."
           eyebrow="Testimonials"
         />
-        <div className="mt-10 md:mt-20 flex flex-col gap-10">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card className="p-6">
-                <div className="flex flex-col gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className="relative size-12 rounded-full overflow-hidden bg-gray-700">
-                      <Image
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold">{testimonial.name}</h3>
-                      <p className="text-white/60 text-sm">
-                        {testimonial.position}
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-white/80">{testimonial.text}</p>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
+        <div className="mt-10 md:mt-20 overflow-x-clip py-4 -my-4">
+          <div className="flex gap-8 hover:[&>*]:pause-animation hover:[&>*]:-rotate-3 hover:[&>*]:transition-transform">
+            {new Array(2).fill(0).map((_, index) => (
+              <div
+                key={index}
+                className="flex flex-none gap-8 animate-move-left animation-duration-[90s]"
+              >
+                {testimonials.map((testimonial, index) => (
+                  <motion.div
+                    key={testimonial.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="w-[400px] flex-none"
+                  >
+                    <Card className="p-6 transition-transform duration-300">
+                      <div className="flex flex-col gap-4">
+                        <div className="flex items-center gap-4">
+                          <div className="relative size-12 rounded-full overflow-hidden bg-gray-700">
+                            <Image
+                              src={testimonial.avatar}
+                              alt={testimonial.name}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                          <div>
+                            <h3 className="font-semibold">
+                              {testimonial.name}
+                            </h3>
+                            <p className="text-white/60 text-sm">
+                              {testimonial.position}
+                            </p>
+                          </div>
+                        </div>
+                        <p className="text-white/80">{testimonial.text}</p>
+                      </div>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
