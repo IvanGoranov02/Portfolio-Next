@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import memoji from "@/assets/images/memoji.png";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
@@ -5,10 +7,21 @@ import grainImage from "@/assets/images/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
 import { HeroOrbit } from "@/components/HeroOrbit";
+import { motion } from "framer-motion";
+
 export const HeroSection = () => {
+  const handleScroll = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      const yOffset = -100;
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
-      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_50%,transparent)]">
+    <div id="home" className="py-32 md:py-48 lg:py-60 relative overflow-x-clip">
+      <div className="absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black_50%,transparent)]">
         <div
           className="absolute inset-0 -z-30 opacity-5"
           style={{
@@ -74,7 +87,7 @@ export const HeroSection = () => {
           <div className="size-2 bg-emerald-300/20 rounded-full"></div>
         </HeroOrbit>
       </div>
-      <div className="container">
+      <div className="container relative z-10">
         <div className="flex items-center flex-col">
           <Image src={memoji} className="size-[100px]" alt="memoji" />
           <div className="flex justify-center w-full">
@@ -100,14 +113,24 @@ export const HeroSection = () => {
         </div>
         <div>
           <div className="flex flex-col md:flex-row justify-center gap-4 items-center mt-8">
-            <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
-              <span className="font-semibold">Explore My Work</span>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => handleScroll("projects")}
+              className="bg-gray-950 inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl font-semibold hover:bg-white/5 transition-colors"
+            >
+              <span>Explore My Work</span>
               <ArrowDown className="size-4" />
-            </button>
-            <button className="inline-flex items-center gap-2 border border-white/15 bg-white text-gray-950 px-6 h-12 rounded-xl">
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => handleScroll("contact")}
+              className="inline-flex items-center gap-2 border border-white/15 bg-white text-gray-950 px-6 h-12 rounded-xl font-semibold hover:bg-white/90 transition-colors"
+            >
               <span>👋</span>
-              <span className="font-semibold">Let's Connect</span>
-            </button>
+              <span>Let's Connect</span>
+            </motion.button>
           </div>
         </div>
       </div>

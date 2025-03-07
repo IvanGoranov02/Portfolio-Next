@@ -27,7 +27,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="py-16 lg:py-24">
+    <section id="contact" className="py-16 lg:py-24">
       <div className="container">
         <SectionHeader
           title="Let's work together"
