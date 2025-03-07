@@ -45,7 +45,7 @@ serve(async (req) => {
 
     // Send email
     const { error: emailError } = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
+      from: "Contact Form <contact@igoranov.com>",
       to: "contact@igoranov.com",
       subject: `New Contact Form Submission from ${name}`,
       html: `
