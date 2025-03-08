@@ -75,7 +75,7 @@
 
 @layer components {
   .nav-item {
-    @apply px-4 py-1.5 rounded-full text-white/70 text-sm font-semibold hover:bg-white/10 hover:text-white transition-colors;
+    @apply px-4 py-1.5 rounded-full text-sm font-medium;
   }
 
   .hero-ring {
@@ -86,6 +86,15 @@
 @layer utilities {
   .container {
     @apply lg:max-w-5xl;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
