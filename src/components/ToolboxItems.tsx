@@ -33,7 +33,9 @@ export const ToolboxItems = ({
             key={item.name}
             className="inline-flex items-center gap-4 px-3 py-2 outline outline-2 outline-white/10 rounded-xl transition-transform hover:scale-110 hover:-translate-y-1"
           >
-            <TechIcon component={item.iconType} />
+            <div className="w-10 h-10">
+              <TechIcon component={item.iconType} />
+            </div>
             <span className="font-semibold">{item.name}</span>
           </div>
         ))}

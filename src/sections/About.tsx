@@ -11,7 +11,10 @@ import HTML5Icon from "@/assets/icons/html5.svg";
 import CSS3Icon from "@/assets/icons/css3.svg";
 import ChromeIcon from "@/assets/icons/chrome.svg";
 import GithubIcon from "@/assets/icons/github.svg";
-import { TechIcon } from "@/components/TechIcon";
+import TypeScriptIcon from "@/assets/icons/typescript.svg";
+import NextJSIcon from "@/assets/icons/nextjs.svg";
+import TailwindIcon from "@/assets/icons/tailwind.svg";
+import VSCodeIcon from "@/assets/icons/vscode.svg";
 import mapImage from "@/assets/images/map.png";
 import memoji from "@/assets/images/memoji-smile.png";
 import { CardHeader } from "@/components/CardHeader";
@@ -25,8 +28,16 @@ const toolboxItems = [
     iconType: JavaScriptIcon,
   },
   {
+    name: "TypeScript",
+    iconType: TypeScriptIcon,
+  },
+  {
     name: "React",
     iconType: ReactIcon,
+  },
+  {
+    name: "Next.js",
+    iconType: NextJSIcon,
   },
   {
     name: "HTML5",
@@ -37,62 +48,105 @@ const toolboxItems = [
     iconType: CSS3Icon,
   },
   {
-    name: "Chrome",
-    iconType: ChromeIcon,
+    name: "Tailwind",
+    iconType: TailwindIcon,
+  },
+  {
+    name: "VS Code",
+    iconType: VSCodeIcon,
   },
   {
     name: "GitHub",
     iconType: GithubIcon,
   },
+  {
+    name: "Chrome",
+    iconType: ChromeIcon,
+  },
 ];
 
 const hobbies = [
   {
-    name: "Traveling",
-    iconType: "🌍",
+    name: "Reading",
+    iconType: "📚",
     left: "5%",
-    top: "5%",
+    top: "10%",
     floatDelay: 0,
   },
   {
-    name: "Gaming",
-    iconType: "🎮",
-    left: "50%",
+    name: "Problem Solving",
+    iconType: "🧩",
+    left: "35%",
     top: "5%",
     floatDelay: 0.2,
   },
   {
-    name: "Cars",
-    iconType: "🚗",
-    left: "10%",
-    top: "35%",
+    name: "Tech Blogs",
+    iconType: "💻",
+    left: "70%",
+    top: "12%",
+    floatDelay: 0.3,
+  },
+  {
+    name: "Traveling",
+    iconType: "🌍",
+    left: "20%",
+    top: "25%",
     floatDelay: 0.4,
   },
   {
-    name: "Music",
-    iconType: "🎵",
-    left: "35%",
-    top: "40%",
-    floatDelay: 0.6,
-  },
-  {
-    name: "Watches",
-    iconType: "⏱️",
-    left: "70%",
-    top: "45%",
-    floatDelay: 0.8,
+    name: "Photography",
+    iconType: "📸",
+    left: "85%",
+    top: "22%",
+    floatDelay: 0.5,
   },
   {
     name: "Gym",
     iconType: "🏋️‍♀️",
-    left: "5%",
-    top: "65%",
-    floatDelay: 1,
+    left: "55%",
+    top: "35%",
+    floatDelay: 0.6,
   },
   {
-    name: "Reading",
-    iconType: "📚",
-    left: "35%",
+    name: "Mindfulness",
+    iconType: "🧘‍♂️",
+    left: "15%",
+    top: "45%",
+    floatDelay: 0.7,
+  },
+  {
+    name: "Languages",
+    iconType: "🗣️",
+    left: "45%",
+    top: "50%",
+    floatDelay: 0.8,
+  },
+  {
+    name: "Chess",
+    iconType: "♟️",
+    left: "75%",
+    top: "42%",
+    floatDelay: 0.9,
+  },
+  {
+    name: "Writing",
+    iconType: "✍️",
+    left: "30%",
+    top: "65%",
+    floatDelay: 1.0,
+  },
+  {
+    name: "Public Speaking",
+    iconType: "🎤",
+    left: "60%",
+    top: "60%",
+    floatDelay: 1.1,
+  },
+  {
+    name: "Networking",
+    iconType: "🤝",
+    left: "82%",
     top: "70%",
     floatDelay: 1.2,
   },
@@ -124,7 +178,7 @@ export const AboutSection = () => {
         eyebrow="About"
       />
       <div className="mt-20 flex flex-col gap-8">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 lg:grid-cols-3 ">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 lg:grid-cols-3">
           <Card className="h-[320px] md:col-span-2 lg:col-span-1">
             <div className="flex flex-col items-center h-full">
               <CardHeader
@@ -136,7 +190,7 @@ export const AboutSection = () => {
               </div>
             </div>
           </Card>
-          <Card className="h-[320px] md:col-span-3 lg:col-span-2 ">
+          <Card className="h-[320px] md:col-span-3 lg:col-span-2">
             <CardHeader
               title="My Toolbox"
               description="Discover the tools that fuel my creativity and productivity."
@@ -161,11 +215,11 @@ export const AboutSection = () => {
               description="Discover my interests and hobbies outside of coding."
               className="px-6 py-6"
             />
-            <div className="relative flex-1" ref={constraintRef}>
+            <div className="relative flex-1 h-[200px]" ref={constraintRef}>
               {hobbies.map((item) => (
                 <motion.div
                   key={item.name}
-                  className="inline-flex gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 items-center absolute cursor-grab active:cursor-grabbing"
+                  className="inline-flex gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 items-center absolute cursor-grab active:cursor-grabbing hover:shadow-lg"
                   style={{
                     left: item.left,
                     top: item.top,
@@ -193,7 +247,7 @@ export const AboutSection = () => {
           <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
             <Image
               src={mapImage}
-              className="w-full h-full object-cover object-left-top"
+              className="w-full h-full object-cover object-left-bottom"
               alt="Map"
             />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full">

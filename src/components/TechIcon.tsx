@@ -1,4 +1,3 @@
-import { twMerge } from "tailwind-merge";
 import { SVGProps } from "react";
 
 export const TechIcon = ({
@@ -9,17 +8,19 @@ export const TechIcon = ({
   return (
     <>
       <Component className="size-10 fill-[url(#tech-icon-gradient)]" />
-      <svg className="size-0 absolute">
-        <linearGradient id="tech-icon-gradient">
-          <stop
-            offset="0%"
-            style={{ stopColor: "rgb(110 231 183)", stopOpacity: 1 }}
-          />
-          <stop
-            offset="100%"
-            style={{ stopColor: "rgb(56 189 248)", stopOpacity: 1 }}
-          />
-        </linearGradient>
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <linearGradient
+            id="tech-icon-gradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" style={{ stopColor: "rgb(110 231 183)" }} />
+            <stop offset="100%" style={{ stopColor: "rgb(56 189 248)" }} />
+          </linearGradient>
+        </defs>
       </svg>
     </>
   );

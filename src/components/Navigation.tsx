@@ -7,33 +7,52 @@ export const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "projects", "about", "contact"];
+      const sections = [
+        "home",
+        "experience",
+        "projects",
+        "achievements",
+        "about",
+        "contact",
+      ];
+
       const scrollPosition = window.scrollY;
-      const offset = 100;
+      const windowHeight = window.innerHeight;
+      const threshold = windowHeight * 0.3;
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
-          const elementTop = element.offsetTop - offset;
-          const elementBottom = elementTop + element.offsetHeight;
+          const rect = element.getBoundingClientRect();
 
-          if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
-            setActiveSection(section);
+          if (rect.top <= threshold && rect.bottom >= threshold) {
+            if (activeSection !== section) {
+              setActiveSection(section);
+            }
             break;
           }
         }
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const scrollListener = () => {
+      requestAnimationFrame(handleScroll);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", scrollListener, { passive: true });
+    return () => window.removeEventListener("scroll", scrollListener);
+  }, [activeSection]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       const offset = 100;
       const elementPosition = element.offsetTop - offset;
+      console.log("Scrolling to section:", sectionId, {
+        offsetTop: element.offsetTop,
+        position: elementPosition,
+      });
       window.scrollTo({
         top: elementPosition,
         behavior: "smooth",
@@ -53,12 +72,28 @@ export const Navigation = () => {
           Home
         </button>
         <button
+          onClick={() => scrollToSection("experience")}
+          className={`nav-item ${
+            activeSection === "experience" ? "bg-white text-gray-900" : ""
+          }`}
+        >
+          Experience
+        </button>
+        <button
           onClick={() => scrollToSection("projects")}
           className={`nav-item ${
             activeSection === "projects" ? "bg-white text-gray-900" : ""
           }`}
         >
           Projects
+        </button>
+        <button
+          onClick={() => scrollToSection("achievements")}
+          className={`nav-item ${
+            activeSection === "achievements" ? "bg-white text-gray-900" : ""
+          }`}
+        >
+          Achievements
         </button>
         <button
           onClick={() => scrollToSection("about")}
