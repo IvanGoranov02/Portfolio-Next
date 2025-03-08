@@ -267,6 +267,9 @@ export const AboutSection = () => {
               src={mapImage}
               className="w-full h-full object-cover object-[45%_55%] scale-110 transform"
               alt="Map"
+              priority={false}
+              loading="lazy"
+              quality={85}
             />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full">
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full -z-20" />
@@ -276,6 +279,9 @@ export const AboutSection = () => {
                   src={memoji}
                   className="w-20 h-20 object-cover"
                   alt="Memoji"
+                  priority={false}
+                  loading="lazy"
+                  quality={85}
                 />
               </div>
             </div>

@@ -184,28 +184,28 @@ export const ContactSection = () => {
                 <h4 className="text-lg font-medium">Or connect with me on:</h4>
                 <div className="flex gap-4">
                   <a
-                    href="https://github.com"
+                    href="https://github.com/IvanGoranoff"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white/60 hover:text-white transition-colors"
+                    className="text-white/60 hover:text-emerald-300 transition-colors"
                   >
                     GitHub
                   </a>
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/ivan-goranov/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white/60 hover:text-white transition-colors"
+                    className="text-white/60 hover:text-emerald-300 transition-colors"
                   >
                     LinkedIn
                   </a>
                   <a
-                    href="https://twitter.com"
+                    href="https://www.instagram.com/ivgoranov/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white/60 hover:text-white transition-colors"
+                    className="text-white/60 hover:text-emerald-300 transition-colors"
                   >
-                    Twitter
+                    Instagram
                   </a>
                 </div>
               </div>

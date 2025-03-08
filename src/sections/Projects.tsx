@@ -18,7 +18,7 @@ const portfolioProjects = [
       { title: "Improved site speed by 50%" },
       { title: "Increased mobile traffic by 35%" },
     ],
-    link: "https://youtu.be/4k7IdSLxh6w",
+    link: "https://github.com/ivangoranov/dark-saas-landing",
     image: darkSaasLandingPage,
   },
   {
@@ -30,7 +30,7 @@ const portfolioProjects = [
       { title: "Expanded customer reach by 35%" },
       { title: "Increased brand awareness by 15%" },
     ],
-    link: "https://youtu.be/7hi5zwO75yc",
+    link: "https://github.com/ivangoranov/light-saas-landing",
     image: lightSaasLandingPage,
   },
   {
@@ -42,7 +42,7 @@ const portfolioProjects = [
       { title: "Improved site speed by 50%" },
       { title: "Increased mobile traffic by 35%" },
     ],
-    link: "https://youtu.be/Z7I5uSRHMHg",
+    link: "https://github.com/ivangoranov/ai-startup-landing",
     image: aiStartupLandingPage,
   },
 ];
@@ -88,8 +88,13 @@ export const ProjectsSection = () => {
                         </li>
                       ))}
                     </ul>
-                    <a href={project.link} target="_blank">
-                      <button className="bg-white text-gray-950 h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-4 md:w-auto md:px-6">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block mt-4"
+                    >
+                      <button className="bg-white text-gray-950 h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-4 md:w-auto md:px-6 hover:bg-emerald-300 transition-colors">
                         <span>View Project</span>
                         <ArrowUpIcon className="size-4" />
                       </button>
@@ -101,7 +106,7 @@ export const ProjectsSection = () => {
                   <Image
                     src={project.image}
                     alt={project.title}
-                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:-mb-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
+                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:-mb-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               </div>

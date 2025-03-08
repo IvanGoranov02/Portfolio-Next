@@ -1,8 +1,10 @@
+"use client";
+
 import { TechIcon } from "./TechIcon";
-import { ComponentType } from "react";
+import { ComponentType, memo } from "react";
 import { twMerge } from "tailwind-merge";
 
-export const ToolboxItems = ({
+const ToolboxItemsComponent = ({
   toolboxItems,
   className,
   itemsWrapperClassName,
@@ -43,3 +45,5 @@ export const ToolboxItems = ({
     </div>
   );
 };
+
+export const ToolboxItems = memo(ToolboxItemsComponent);
