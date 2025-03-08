@@ -171,12 +171,30 @@ export const AboutSection = () => {
 
   return (
     <div id="about" className="py-20 lg:py-28 lg:px-20">
-      <div className="container"></div>
-      <SectionHeader
-        title="A Glimpse Into My World"
-        description="Here's a little more about me."
-        eyebrow="About"
-      />
+      <div className="container">
+        <SectionHeader
+          title="A Glimpse Into My World"
+          description="Here's a little more about me."
+          eyebrow="About"
+        />
+        <div className="flex justify-center mt-6">
+          <a
+            href="/Ivan_Goranov_CV.pdf"
+            download
+            className="inline-flex items-center gap-2 px-6 py-2 bg-white text-gray-950 rounded-xl font-medium hover:bg-white/90 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-5 h-5"
+            >
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 15l-4-4h2.5V7h3v6H16l-4 4z" />
+            </svg>
+            <span>Download CV</span>
+          </a>
+        </div>
+      </div>
       <div className="mt-20 flex flex-col gap-8">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 lg:grid-cols-3">
           <Card className="h-[320px] md:col-span-2 lg:col-span-1">
@@ -247,7 +265,7 @@ export const AboutSection = () => {
           <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
             <Image
               src={mapImage}
-              className="w-full h-full object-cover object-left-bottom"
+              className="w-full h-full object-cover object-[45%_55%] scale-110 transform"
               alt="Map"
             />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full">
