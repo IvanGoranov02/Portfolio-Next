@@ -1,7 +1,7 @@
 import { SectionHeader } from "@/components/SectionHeader";
-import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
-import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
-import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
+import darkSaasLandingPage from "@/assets/images/blog.png";
+import mealPlanner from "@/assets/images/meal-planner.png";
+import aiStartupLandingPage from "@/assets/images/portfolio.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpIcon from "@/assets/icons/arrow-up-right.svg";
@@ -31,7 +31,7 @@ const portfolioProjects = [
       { title: "Created meal plans based on user goals (bulk/cut/maintain)" },
     ],
     link: "https://github.com/IvanGoranov02/Nutritions/tree/ig-/nutrition-calculator",
-    image: lightSaasLandingPage,
+    image: mealPlanner,
   },
   {
     company: "Personal Project",
@@ -106,7 +106,7 @@ export const ProjectsSection = () => {
                   <Image
                     src={project.image}
                     alt={project.title}
-                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:-mb-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none hover:scale-105 transition-transform duration-300"
+                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:-mb-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none hover:scale-105 transition-transform duration-300 rounded-3xl"
                   />
                 </div>
               </div>

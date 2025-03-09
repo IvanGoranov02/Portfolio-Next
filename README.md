@@ -1,185 +1,91 @@
-# Modern Portfolio Website
+# Ivan Goranov's Portfolio
 
-A modern, responsive portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. Features smooth animations, interactive elements, and a clean design.
+A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. This portfolio showcases my projects, skills, and achievements in web development.
 
-## 🌟 Features
+## 🚀 Features
 
-### 1. Modern UI Components
+- **Modern Design**: Clean and professional UI with smooth animations
+- **Responsive Layout**: Optimized for all devices (mobile, tablet, desktop)
+- **Interactive Elements**: Dynamic navigation, hover effects, and smooth scrolling
+- **Performance Optimized**: Fast loading times and optimized images
+- **Accessibility**: ARIA labels and semantic HTML
+- **Dark Mode**: Elegant dark theme for better viewing experience
 
-- Responsive navigation with smooth scroll
-- Interactive hero section with orbital animations
-- Infinite scrolling tape section with keywords
-- Draggable hobby cards with floating animations
-- Project cards with parallax scrolling effect
-- Contact form with real-time validation
-- Scroll progress indicator
-- "Back to top" button
+## 🛠️ Built With
 
-### 2. Sections
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Custom SVG icons
+- **Deployment**: Vercel
 
-- **Hero** - Introduction with animated elements and orbital rings
-- **Experience** - Professional background with timeline
-- **Projects** - Showcase of work with detailed descriptions
-- **Achievements** - Scrolling cards showing competitions and awards
-- **About** - Personal information including:
-  - Toolbox (Tech stack)
-  - Beyond the Code (Interactive hobby cards)
-  - Location indicator
-  - Reading interests
-- **Contact** - Form integrated with Supabase
+## 📂 Project Structure
 
-### 3. Technical Features
+```
+src/
+├── app/              # Next.js app directory
+├── assets/           # Images, icons, and other static assets
+├── components/       # Reusable UI components
+├── sections/         # Main page sections
+└── styles/          # Global styles and Tailwind config
+```
 
-- Server-side rendering with Next.js 14
-- TypeScript for type safety
-- Tailwind CSS for styling
-- Framer Motion for animations
-- Supabase for backend services
-- Responsive design for all devices
-- SEO optimized
-
-## 🛠️ Tech Stack
-
-- **Framework:** Next.js 14
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Backend:** Supabase
-- **Icons:** Custom SVG icons
-- **Fonts:** Inter, Calistoga
-
-## 🚀 Getting Started
+## 🔧 Installation
 
 1. Clone the repository:
 
 ```bash
-git clone [repository-url]
+git clone https://github.com/IvanGoranov02/Portfolio-Next.git
 ```
 
 2. Install dependencies:
 
 ```bash
 npm install
-# or
-yarn install
 ```
 
-3. Set up environment variables:
-   Create a `.env.local` file with:
-
-```env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
-
-4. Run the development server:
+3. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## 📁 Project Structure
+## 📱 Featured Projects
 
-```
-src/
-├── app/
-│   ├── layout.tsx
-│   ├── page.tsx
-│   └── globals.css
-├── assets/
-│   ├── icons/
-│   └── images/
-├── components/
-│   ├── Card.tsx
-│   ├── Navigation.tsx
-│   ├── ScrollProgress.tsx
-│   ├── ScrollToTop.tsx
-│   ├── SectionHeader.tsx
-│   ├── TechIcon.tsx
-│   └── ToolboxItems.tsx
-└── sections/
-    ├── About.tsx
-    ├── ContactForm.tsx
-    ├── Experience.tsx
-    ├── Footer.tsx
-    ├── Header.tsx
-    ├── Hero.tsx
-    ├── Projects.tsx
-    ├── Tape.tsx
-    └── Testimonials.tsx
-```
+1. **Blog with React.js**
 
-## 🎨 Design Features
+   - Social media-like application
+   - User authentication and profile management
+   - Post creation with reactions and comments
 
-- Gradient color scheme (emerald to sky blue)
-- Dark mode design
-- Grain texture overlays
-- Custom animations
-- Interactive elements
-- Responsive typography
-- Modern card designs
+2. **Nutrition Calculator**
 
-## 🔧 Configuration
+   - Personalized nutrition calculator
+   - BMR and TDEE calculations
+   - Custom meal plans based on user goals
 
-### Tailwind Configuration
+3. **Portfolio Website**
+   - Built with Next.js and TypeScript
+   - Responsive design with Tailwind CSS
+   - Smooth animations with Framer Motion
 
-The project uses a custom Tailwind configuration for:
+## 🏆 Achievements
 
-- Custom animations
-- Extended color palette
-- Custom font families
-- Custom spacing
-- Responsive breakpoints
+- National competition "Technology, Creativity, Entrepreneurship" - 1st Place (2020, 2021)
+- National IT competition, Blagoevgrad - 1st & 2nd Place
+- National competition "IT-Znayko" - 1st Place
+- National competition "John Atanasov" - 1st Place
+- Fifth Session of the Student Institute of BAS - 2nd Place
 
-### Next.js Configuration
+## 📫 Contact
 
-- Optimized image loading
-- Font optimization
-- Static site generation where applicable
-- API routes for form handling
-
-## 📱 Responsive Design
-
-The website is fully responsive across:
-
-- Mobile devices
-- Tablets
-- Desktop screens
-- Large displays
-
-## 🔄 State Management
-
-- React hooks for local state
-- Framer Motion for animation states
-- Form state management for contact form
-
-## 🎯 Future Improvements
-
-- [ ] Add blog section
-- [ ] Implement dark/light theme toggle
-- [ ] Add more interactive elements
-- [ ] Enhance accessibility features
-- [ ] Add more project details
-- [ ] Implement filtering for projects
+- LinkedIn: [Ivan Goranov](https://www.linkedin.com/in/ivan-goranov/)
+- GitHub: [IvanGoranoff](https://github.com/IvanGoranoff)
+- Instagram: [@ivgoranov](https://www.instagram.com/ivgoranov/)
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 👤 Author
-
-[Your Name]
-
-- Website: [your-website]
-- GitHub: [@your-username]
-- LinkedIn: [your-linkedin]
-
-## 🙏 Acknowledgments
-
-- Icons from various sources
-- Inspiration from modern web design trends
-- Community feedback and suggestions
+This project is open source and available under the MIT License.
