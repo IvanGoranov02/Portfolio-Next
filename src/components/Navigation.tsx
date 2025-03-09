@@ -90,7 +90,7 @@ export const Navigation = () => {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="md:hidden fixed top-3 right-4 z-50 p-2 rounded-full bg-white/10 backdrop-blur border border-white/15"
+        className="md:hidden fixed top-4 right-4 z-[60] p-2 rounded-full bg-white/10 backdrop-blur border border-white/15"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -118,19 +118,19 @@ export const Navigation = () => {
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed inset-y-0 right-0 w-64 bg-gray-900/95 backdrop-blur transform transition-transform duration-300 ease-in-out z-40 md:hidden ${
+        className={`fixed inset-y-0 right-0 w-64 bg-gray-900/95 backdrop-blur transform transition-transform duration-300 ease-in-out z-[55] md:hidden ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col gap-2 p-4 mt-16">
+        <div className="flex flex-col gap-2 p-4 mt-20">
           {navigationItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`w-full text-left px-4 py-2 rounded-lg transition-all duration-300 ${
+              className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
                 activeSection === item.id
                   ? "bg-white text-gray-900"
-                  : "hover:text-emerald-300"
+                  : "text-white/60 hover:text-emerald-300"
               }`}
             >
               {item.label}
@@ -142,7 +142,7 @@ export const Navigation = () => {
       {/* Overlay */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 md:hidden"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[50] md:hidden"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}

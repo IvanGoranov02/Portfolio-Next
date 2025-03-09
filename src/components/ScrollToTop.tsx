@@ -28,20 +28,14 @@ export const ScrollToTop = () => {
   };
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-white text-gray-950 p-4 rounded-full shadow-lg hover:bg-white/90 transition-all z-50"
-        >
-          <ArrowUpIcon className="size-6 rotate-[-45deg]" />
-        </motion.button>
-      )}
-    </AnimatePresence>
+    <motion.button
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isVisible ? 1 : 0 }}
+      onClick={scrollToTop}
+      className="fixed bottom-4 left-4 md:bottom-8 md:right-8 md:left-auto z-40 p-2 rounded-full bg-white/10 backdrop-blur border border-white/15 hover:bg-white/20 transition-colors"
+      style={{ display: isVisible ? "block" : "none" }}
+    >
+      <ArrowUpIcon className="w-6 h-6" />
+    </motion.button>
   );
 };
