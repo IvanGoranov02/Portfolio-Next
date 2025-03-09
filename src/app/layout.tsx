@@ -35,6 +35,21 @@ export const metadata: Metadata = {
       "Frontend developer passionate about creating exceptional user experiences",
     type: "website",
   },
+  icons: {
+    icon: [
+      {
+        url: "/icon.png",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: "/apple-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -53,6 +68,7 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body
         suppressHydrationWarning
