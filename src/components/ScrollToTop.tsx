@@ -32,10 +32,10 @@ export const ScrollToTop = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: isVisible ? 1 : 0 }}
       onClick={scrollToTop}
-      className="fixed bottom-4 left-4 md:bottom-8 md:right-8 md:left-auto z-40 p-2 rounded-full bg-white/10 backdrop-blur border border-white/15 hover:bg-white/20 transition-colors"
+      className="fixed bottom-4 left-4 md:bottom-8 md:right-8 md:left-auto z-40 p-2 rounded-full bg-white text-gray-950 hover:bg-emerald-300 transition-colors"
       style={{ display: isVisible ? "block" : "none" }}
     >
-      <ArrowUpIcon className="w-6 h-6" />
+      <ArrowUpIcon className="size-6 rotate-[-45deg]" />
     </motion.button>
   );
 };
