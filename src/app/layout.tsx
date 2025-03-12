@@ -18,11 +18,11 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-  title: "Ivan Goranov | Frontend Developer & UI Specialist",
+  title: "Ivan Goranov | Front-end Developer & UI Specialist",
   description:
-    "Frontend developer crafting exceptional web experiences with React, Next.js, and modern JavaScript. Award-winning programmer specializing in responsive, user-centered interfaces.",
+    "Front-end developer crafting exceptional web experiences with React, Next.js, and modern JavaScript. Award-winning programmer specializing in responsive, user-centered interfaces.",
   keywords: [
-    "Frontend Developer",
+    "Front-end Developer",
     "React Developer",
     "Next.js Developer",
     "TypeScript Expert",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "Portfolio",
     "Ivan Goranov",
     "Responsive Design",
-    "Frontend Engineer",
+    "Front-end Engineer",
     "Bulgarian Developer",
   ],
   authors: [{ name: "Ivan Goranov" }],
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
   publisher: "Ivan Goranov",
   robots: "index, follow",
   openGraph: {
-    title: "Ivan Goranov | Frontend Developer & UI Specialist",
+    title: "Ivan Goranov | Front-end Developer & UI Specialist",
     description:
-      "Award-winning frontend developer specializing in modern web technologies. View my portfolio showcasing React, Next.js and TypeScript projects.",
+      "Award-winning front-end developer specializing in modern web technologies. View my portfolio showcasing React, Next.js and TypeScript projects.",
     type: "website",
     locale: "en_US",
     url: "https://igoranov.com",
@@ -52,13 +52,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Ivan Goranov Frontend Developer Portfolio",
+        alt: "Ivan Goranov Front-end Developer Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ivan Goranov | Frontend Developer",
+    title: "Ivan Goranov | Front-end Developer",
     description: "Check out my portfolio of web development projects",
     images: ["/og-image.png"],
   },
@@ -116,7 +116,7 @@ export default function RootLayout({
                 "https://github.com/IvanGoranov02",
                 "https://www.instagram.com/ivgoranov/"
               ],
-              "jobTitle": "Frontend Developer",
+              "jobTitle": "Front-end Developer",
               "worksFor": {
                 "@type": "Organization",
                 "name": "Freelance"
