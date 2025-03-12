@@ -46,7 +46,8 @@ export const Footer = () => {
       <div className="container relative">
         <div className="border-t border-white/15 py-6 text-sm flex flex-col md:flex-row md:justify-between items-center gap-8">
           <div className="text-white/40">
-            © {new Date().getFullYear()}. All rights reserved.
+            © {new Date().getFullYear()} Ivan Goranov. Crafted with ☕ and 💻.
+            All bugs reserved.
           </div>
           <nav className="flex flex-col md:flex-row items-center gap-8">
             {footerLinks.map((link) => (

@@ -93,8 +93,14 @@ export const HeroSection = () => {
           <div className="flex justify-center w-full">
             <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
               <div className="relative">
-                <div className="bg-green-500 size-2.5 rounded-full"></div>
-                <div className="absolute inset-0 bg-green-500 rounded-full animate-[ping-large_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                <div
+                  className="bg-green-500 size-2.5 rounded-full"
+                  aria-hidden="true"
+                ></div>
+                <div
+                  className="absolute inset-0 bg-green-500 rounded-full animate-[ping-large_2s_cubic-bezier(0,0,0.2,1)_infinite]"
+                  aria-hidden="true"
+                ></div>
               </div>
               <div className="text-sm font-medium">
                 Available for new projects
@@ -107,8 +113,9 @@ export const HeroSection = () => {
             Building Exceptional User Experiences
           </h1>
           <p className="text-center mt-4 text-white/60 md:text-lg">
-            I am passionate about front-end development and eager to learn new
-            technologies and frameworks.
+            Turning bugs into features and caffeine into code. Frontend
+            developer with a passion for pixel-perfect UI and award-winning
+            solutions. Error 404: Free time not found. 🚀
           </p>
         </div>
         <div>

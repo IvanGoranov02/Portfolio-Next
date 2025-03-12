@@ -266,24 +266,32 @@ export const AboutSection = () => {
             <Image
               src={mapImage}
               className="w-full h-full object-cover object-[45%_55%] scale-110 transform"
-              alt="Map"
+              alt="Map showing Ivan Goranov's location in Sofia, Bulgaria"
               priority={false}
               loading="lazy"
               quality={85}
             />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full">
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full -z-20" />
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full -z-10 animate-ping-large" />
+              <div
+                className="absolute inset-0 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full -z-20"
+                aria-hidden="true"
+              ></div>
+              <div
+                className="absolute inset-0 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full -z-10 animate-ping-large"
+                aria-hidden="true"
+              ></div>
               <div className="absolute inset-0 after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30">
                 <Image
                   src={memoji}
                   className="w-20 h-20 object-cover"
-                  alt="Memoji"
-                  priority={false}
+                  alt="Ivan Goranov's memoji avatar"
                   loading="lazy"
                   quality={85}
                 />
               </div>
+            </div>
+            <div className="absolute bottom-3 right-3 bg-gray-900/80 px-3 py-1 rounded-full text-sm backdrop-blur-sm">
+              Sofia, Bulgaria
             </div>
           </Card>
         </div>
