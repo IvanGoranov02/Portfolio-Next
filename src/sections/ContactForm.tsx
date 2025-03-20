@@ -184,7 +184,7 @@ export const ContactSection = () => {
                 <h4 className="text-lg font-medium">Or connect with me on:</h4>
                 <div className="flex gap-4">
                   <a
-                    href="https://github.com/IvanGoranoff"
+                    href="https://github.com/IvanGoranov02"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white/60 hover:text-emerald-300 transition-colors"
