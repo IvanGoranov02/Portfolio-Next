@@ -83,7 +83,7 @@ npm run dev
 ## 📫 Contact
 
 - LinkedIn: [Ivan Goranov](https://www.linkedin.com/in/ivan-goranov/)
-- GitHub: [IvanGoranoff](https://github.com/IvanGoranoff)
+- GitHub: [IvanGoranoff](https://github.com/IvanGoranov02)
 - Instagram: [@ivgoranov](https://www.instagram.com/ivgoranov/)
 
 ## 📄 License

@@ -16,7 +16,7 @@ const socialLinks = [
   },
   {
     title: "GitHub",
-    url: "https://github.com/IvanGoranoff",
+    url: "https://github.com/IvanGoranov02",
     ariaLabel: "Check out my GitHub projects",
   },
   {
