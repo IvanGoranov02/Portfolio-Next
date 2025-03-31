@@ -6,6 +6,14 @@ import { Card } from "@/components/Card";
 
 const experiences = [
   {
+    period: "March 2024 - Present",
+    role: "Front-End Developer",
+    company: "FibWeb",
+    description:
+      "Specializing in building and enhancing mobile applications, web-based solutions, and large-scale enterprise software. The team consists of multidisciplinary talents - software engineers, developers, designers, and specialists working together to deliver exceptional digital solutions.",
+    technologies: ["React.js", "Redux", "JavaScript", "MUI", "Bootstrap"],
+  },
+  {
     period: "2024 - 2025 (6 months)",
     role: "Front-End Developer",
     company: "Hight.IO",
