@@ -6,7 +6,7 @@ import { Card } from "@/components/Card";
 
 const experiences = [
   {
-    period: "March 2024 - Present",
+    period: "March 2025 - Present",
     role: "Front-End Developer",
     company: "FibWeb",
     description:
