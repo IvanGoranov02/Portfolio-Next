@@ -72,6 +72,11 @@ npm run dev
    - Responsive design with Tailwind CSS
    - Smooth animations with Framer Motion
 
+4. **Forum Application**
+   - Modern forum platform with Next.js
+   - User authentication and role management
+   - Real-time messaging and discussion threads
+
 ## 🏆 Achievements
 
 - National competition "Technology, Creativity, Entrepreneurship" - 1st Place (2020, 2021)

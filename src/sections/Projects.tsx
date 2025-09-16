@@ -2,6 +2,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import darkSaasLandingPage from "@/assets/images/blog.png";
 import mealPlanner from "@/assets/images/meal-planner.png";
 import aiStartupLandingPage from "@/assets/images/portfolio.png";
+import forumProject from "@/assets/images/forum.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpIcon from "@/assets/icons/arrow-up-right.svg";
@@ -44,6 +45,18 @@ const portfolioProjects = [
     ],
     link: "https://github.com/IvanGoranov02/Portfolio-Next",
     image: aiStartupLandingPage,
+  },
+  {
+    company: "Personal Project",
+    year: "2024",
+    title: "Forum Application",
+    results: [
+      { title: "Built a modern forum platform with Next.js" },
+      { title: "Implemented user authentication and role management" },
+      { title: "Added real-time messaging and discussion threads" },
+    ],
+    link: "https://github.com/IvanGoranov02/Portfolio-Next",
+    image: forumProject,
   },
 ];
 
